@@ -32,7 +32,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnObstacle()
     {
-        int laneIndex = Random.Range(0, 3); // 0=چپ،1=وسط،2=راست
+        int laneIndex = Random.Range(0, 3);
         float laneX = (laneIndex - 1) * laneOffset;
 
         Vector3 spawnPos = new Vector3(
