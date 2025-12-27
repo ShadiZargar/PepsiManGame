@@ -51,4 +51,19 @@ public class PlayerController : MonoBehaviour
     {
         isAlive = alive;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            // جلوگیری از چند بار تریگر شدن
+            SetAlive(false);
+
+            // صدا زدن گیم اور
+            if (GameManager.instance != null)
+                GameManager.instance.GameOver();
+        }
+    }
+
+
 }
