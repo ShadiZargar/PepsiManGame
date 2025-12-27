@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -6,6 +7,10 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     public GameObject gameOverPanel;
+    public TextMeshProUGUI scoreText;
+
+    private float score;
+    private bool isGameOver;
 
     private void Awake()
     {
@@ -15,11 +20,27 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    void Update()
+    {
+        if (isGameOver) return;
+
+        score += Time.deltaTime;
+        UpdateScoreUI();
+    }
+
+    void UpdateScoreUI()
+    {
+        if (scoreText != null)
+            scoreText.text = "Score: " + Mathf.FloorToInt(score).ToString();
+    }
+
     public void GameOver()
     {
+        isGameOver = true;
+
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
 
-        Time.timeScale = 0f; // توقف کامل بازی
+        Time.timeScale = 0f;
     }
 }
