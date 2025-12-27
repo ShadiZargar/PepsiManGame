@@ -2,16 +2,13 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    [Header("References")]
     public Transform player;
     public GameObject obstaclePrefab;
 
-    [Header("Spawn Settings")]
     public float spawnDistance = 25f;
-    public float minDistanceBetweenObstacles = 3f;
-    public float maxDistanceBetweenObstacles = 7f;
+    public float minDistanceBetween = 3f;
+    public float maxDistanceBetween = 7f;
 
-    [Header("Lane Settings")]
     public float laneOffset = 2.5f;
 
     private float nextSpawnZ;
@@ -23,21 +20,22 @@ public class ObstacleSpawner : MonoBehaviour
 
     void Update()
     {
-        if (player.position.z + spawnDistance > nextSpawnZ)
+        if (player.position.z > nextSpawnZ - spawnDistance)
         {
             SpawnObstacle();
-            nextSpawnZ += Random.Range(minDistanceBetweenObstacles, maxDistanceBetweenObstacles);
+            float randomGap = Random.Range(minDistanceBetween, maxDistanceBetween);
+            nextSpawnZ += randomGap;
         }
     }
 
     void SpawnObstacle()
     {
-        int laneIndex = Random.Range(0, 3);
-        float laneX = (laneIndex - 1) * laneOffset;
+        int laneIndex = Random.Range(-1, 2);
+        float laneX = laneIndex * laneOffset;
 
         Vector3 spawnPos = new Vector3(
             laneX,
-            0.5f,
+            0,
             nextSpawnZ
         );
 
