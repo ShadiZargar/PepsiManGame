@@ -2,7 +2,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-
+/*
+ * GameManager
+ * Handles game state management including score calculation,
+ * best score persistence, game over logic, and scene restarting.
+ */
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;

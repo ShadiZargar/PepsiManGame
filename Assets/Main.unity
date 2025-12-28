@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8715b7e40644235a9e93321d8ec3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2052788045}
+  playerTransform: {fileID: 2052788045}
   obstaclePrefab: {fileID: 370525136043597395, guid: 7a1b7b56275494853b2727ebd4d95a1d, type: 3}
   spawnDistance: 25
   minDistanceBetween: 3
