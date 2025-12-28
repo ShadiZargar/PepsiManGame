@@ -9,6 +9,7 @@ UserSettings/
 .vscode/
 .idea/
 .DS_Store
+.pepsiman
 
 *.csproj
 *.unityproj
